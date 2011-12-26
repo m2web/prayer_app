@@ -1,4 +1,8 @@
 PrayerApp::Application.routes.draw do
+  get "prayer_pages/home"
+
+  get "prayer_pages/today"
+
   resources :requests
 
   resources :categories
