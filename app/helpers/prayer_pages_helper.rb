@@ -1,4 +1,5 @@
 module PrayerPagesHelper
+require 'net/http'
 	def todaysVerse
 		options = [
 			#"output-format=plain-text",
