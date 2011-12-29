@@ -10,6 +10,8 @@ class EsvPassage
 	"include-footnotes=false",
 	#"include-passage-references=false",
 	"include-short-copyright=false",
+	"include-subheadings=false",
+	"include-headings=false",
 	"include-content-type=false"].join("&")
     @base_url = "http://www.esvapi.org/v2/rest/passageQuery?key=IP"
   end
