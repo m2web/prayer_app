@@ -5,4 +5,13 @@
 <%= link_to "Daily Reading", "http://markmcfadden.net/prayerweb/DailyReading/12.html" %> | 
 <%= link_to "Daily Prayer", "http://markmcfadden.net/prayerweb/DailyPrayerRequests.aspx" %>
 <br/>
-<%= getMemoryVerses.html_safe %>
+<%= @monthlyMemoryVerses%><br/>
+
+<table>
+	<% @monthlyMemoryVerses.each do |verse| %>
+   <tr class="<%= cycle("odd", "even") -%>">
+	 <td><%= getESVPassage(verse).html_safe %></td>
+   </tr>
+ <% end %>
+ </table>
+

@@ -12,7 +12,7 @@ require 'customClasses/esv_passage'
 		bible.doPassageQuery(passage)
 	end
 
-	def getMemoryVerses
+	def getMemoryVersesHTML
 		bible = EsvPassage.new
 		output = ""
 		#The APP_CONFIG['yearsVersesArray'] is set in the /config/app_config.yml
