@@ -2,4 +2,10 @@ class Person < ActiveRecord::Base
 	has_many :requests
 	validates :first_name, :length => { :minimum => 1 }
 	validates :last_name, :length => { :minimum => 1 }
+
+	#accepts_nested_attributes_for :requests
+
+	def name
+		"#{first_name}#{last_name}"
+	end
 end
