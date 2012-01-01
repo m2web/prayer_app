@@ -24,7 +24,9 @@ class RequestsController < ApplicationController
   # GET /requests/new
   # GET /requests/new.json
   def new
-    @request = Request.new
+		@request = Request.new
+		@people = Person.all
+		@categories = Category.all
 
     respond_to do |format|
       format.html # new.html.erb

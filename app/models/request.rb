@@ -6,4 +6,5 @@ class Request < ActiveRecord::Base
 	def person_name
 		person.name if person
 	end
+
 end

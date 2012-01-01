@@ -6,6 +6,6 @@ class Person < ActiveRecord::Base
 	#accepts_nested_attributes_for :requests
 
 	def name
-		"#{first_name}#{last_name}"
+		"#{first_name} #{last_name}"
 	end
 end
