@@ -22,16 +22,16 @@ The Random Psalm Chapter: <%= @thePsalmChapter %>
 <br/>
 **** End after testing complete ****
 <br/>
-<table>
+<table class="today">
   <tr>
-		<th>Category</th>
-		<th>Content</th>
+		<th class="today">Category</th>
+		<th class="today">Content</th>
   </tr>
 
 <% @todaysRequests.each do |request| %>
 	<tr>
-		<td><%= request.category_name %></td>
-		<td class="prayerContent"><%= request.content %></td>
+		<td class="today"><%= request.category_name %></td>
+		<td class="today" id="prayerContent"><%= request.content %></td>
   </tr>
 <% end %>
 </table>
