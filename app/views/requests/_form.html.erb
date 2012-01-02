@@ -11,18 +11,19 @@
     </div>
   <% end %>
 
-  <div class="field">
+	<div class="field">
     <%= f.label :content %><br />
     <%= f.text_area :content %>
   </div>
-  <div class="field">
-    <%= f.label :person_id %><br />
-		<%= select_tag 'person', options_from_collection_for_select(@people, 'id', 'name') %>
+	<div class="field">
+		<%= f.label :person_id %><br />
+		<%= collection_select(:request, :person_id, Person.all, :id, :name, :prompt => true) %>
 	</div>
-  <div class="field">
-    <%= f.label :category_id %><br />
-		<%= select_tag 'category', options_from_collection_for_select(@categories, 'id', 'name') %>
-  </div>
+	<div class="field">
+		<%= f.label :category_id %><br />
+		<%= collection_select(:request, :category_id, Category.all, :id, :name, :prompt => true) %>
+	</div>
+	<br/>
   <div class="actions">
     <%= f.submit %>
   </div>

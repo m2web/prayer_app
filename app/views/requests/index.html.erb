@@ -2,19 +2,19 @@
 
 <table>
   <tr>
-    <th>Content</th>
-    <th>Person</th>
-    <th>Category</th>
+		<th>Category</th>
+		<th>Person</th>
+		<th>Content</th>
     <th></th>
     <th></th>
     <th></th>
   </tr>
 
 <% @requests.each do |request| %>
-  <tr>
-    <td><%= request.content %></td>
-    <td><%= request.person_id %></td>
-    <td><%= request.category_id %></td>
+	<tr>
+		<td><%= request.category_name %></td>
+		<td><%= request.person_name %></td>
+		<td class="prayerContent"><%= request.content %></td>
     <td><%= link_to 'Show', request %></td>
     <td><%= link_to 'Edit', edit_request_path(request) %></td>
     <td><%= link_to 'Destroy', request, confirm: 'Are you sure?', method: :delete %></td>

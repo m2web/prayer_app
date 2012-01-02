@@ -3,8 +3,6 @@ class Person < ActiveRecord::Base
 	validates :first_name, :length => { :minimum => 1 }
 	validates :last_name, :length => { :minimum => 1 }
 
-	#accepts_nested_attributes_for :requests
-
 	def name
 		"#{first_name} #{last_name}"
 	end

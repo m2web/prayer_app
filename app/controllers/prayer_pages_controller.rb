@@ -8,7 +8,7 @@ class PrayerPagesController < ApplicationController
 	
 	end
 
-  	def today
-  	end
+	def today
+	end
 
 end

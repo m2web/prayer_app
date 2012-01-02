@@ -7,4 +7,8 @@ class Request < ActiveRecord::Base
 		person.name if person
 	end
 
+	def category_name
+		category.name if category
+	end
+
 end
