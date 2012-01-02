@@ -1,23 +1,23 @@
 <h1>Listing requests</h1>
 
-<table>
+<table class="requests">
   <tr>
-		<th>Category</th>
-		<th>Person</th>
-		<th>Content</th>
-    <th></th>
-    <th></th>
-    <th></th>
+		<th class="requests">Category</th>
+		<th class="requests">Person</th>
+		<th class="requests">Content</th>
+    <th class="requests"></th>
+    <th class="requests"></th>
+    <th class="requests"></th>
   </tr>
 
 <% @requests.each do |request| %>
 	<tr>
-		<td><%= request.category_name %></td>
-		<td><%= request.person_name %></td>
-		<td class="prayerContent"><%= request.content %></td>
-    <td><%= link_to 'Show', request %></td>
-    <td><%= link_to 'Edit', edit_request_path(request) %></td>
-    <td><%= link_to 'Destroy', request, confirm: 'Are you sure?', method: :delete %></td>
+		<td class="requests"><%= request.category_name %></td>
+		<td class="requests"><%= request.person_name %></td>
+		<td class="requests" id="prayerContent"><%= request.content %></td>
+    <td class="requests"><%= link_to 'Show', request %></td>
+    <td class="requests"><%= link_to 'Edit', edit_request_path(request) %></td>
+    <td class="requests"><%= link_to 'Destroy', request, confirm: 'Are you sure?', method: :delete %></td>
   </tr>
 <% end %>
 </table>
