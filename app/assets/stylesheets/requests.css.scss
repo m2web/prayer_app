@@ -2,6 +2,12 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+table, th, td {
+	border-style: solid;
+	border-width: 1px;
+	border-spacing: 0;
+}
+
 td.prayerContent {
-	width:75%;
+	width: 75%;
 }

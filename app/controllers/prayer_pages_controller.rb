@@ -9,6 +9,12 @@ class PrayerPagesController < ApplicationController
 	end
 
 	def today
+		#get the total number of requests
+		@requests = Request.all
+		@requestsCount = @requests.length
+
+		#get the day number
+		@dayNumber = Time.new.wday
 	end
 
 end
