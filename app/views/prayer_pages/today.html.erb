@@ -1,8 +1,41 @@
-<h1>PrayerPages#today</h1>
-<p>Find me in app/views/prayer_pages/today.html.erb</p>
-
-<%= @requestsCount %>
-
+<h1>Prayer Today</h1>
+**** Remove after testing complete ****
 <br/>
+** will need to change the instance variables to standard vars in the prayer_pages_controller.rb in the private getTodaysRequests **
+<br/>
+Request Count: <%= @requestsCount %>
+<br/>
+Day Number: <%= @dayNumber %>
+<br/>
+Categories per day: <%= @categoriesPerDay %>
+<br/>
+Category start: <%= @categoryStart %> : 
+Category end: <%= @categoryEnd %>
+<br/>
+Month Number: <%= @monthDayNumber %>
+<br/>
+First Psalm Day Chapter: <%= @daysFirstChapterNumber %>
+<br/>
+Last Psalm Chapter: <%= @daysLastChapterNumber %>
+<br/>
+The Random Psalm Chapter: <%= @thePsalmChapter %>
+<br/>
+**** End after testing complete ****
+<br/>
+<table>
+  <tr>
+		<th>Category</th>
+		<th>Content</th>
+  </tr>
 
-<%= @dayNumber %>
+<% @todaysRequests.each do |request| %>
+	<tr>
+		<td><%= request.category_name %></td>
+		<td class="prayerContent"><%= request.content %></td>
+  </tr>
+<% end %>
+</table>
+<br/>
+<%= getESVPassage("Psalm " + @thePsalmChapter.to_s).html_safe %>
+
+
