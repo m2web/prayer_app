@@ -22,8 +22,6 @@ class PrayerPagesController < ApplicationController
 	
 	def getTodaysRequests
 	#get the total number of requests
-		#TODO: find out how to order by Category model's name attribute instead of Request model's category_id below
-		#requests = Request.all(:order => :category_id)
 		requests = Request.all
 		requests = requests.sort_by { |request| request.category_name }
 		@requestsCount = requests.length
