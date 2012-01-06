@@ -30,6 +30,7 @@ gem 'jquery-rails'
 
 group :development do
 	gem 'rspec-rails'
+	gem 'sqlite3'
 end
 
 group :test do
