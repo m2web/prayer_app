@@ -4,15 +4,13 @@
 
 <%= link_to "Daily Reading", monthReadingSchedule, :target => "_blank" %> | 
 <%= link_to "Daily Prayer", "/prayer_pages/today", :target => "_blank" %>
+<br/><br/>
+<div class="catechism"><span id="label">Westminster Catechism Question:</span> <%= todaysWestminsterCatechism %></div>
 <br/>
-
 <table>
 	<% @monthlyMemoryVerses.each do |verse| %>
    <tr class="<%= cycle("odd", "even") -%>">
 	 <td><%= getESVPassage(verse).html_safe %></td>
    </tr>
  <% end %>
- </table>
- <br/>
- <div class="catechism"><span id="label">Westminster Catechism Question:</span> <%= todaysWestminsterCatechism %></div>
-
+ </table> 
