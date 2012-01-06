@@ -9,4 +9,3 @@ TODOS:
 -Within the views, reference the <%= stylesheet_link_tag "main" %> explicitly to reduce ambiguity within the asset pipeline?
 -For CSS the ESV API renders its div class as 'esv-text'. Use that for home and today view styling.
 -change the instance variables in prayer_pages_controller to local variables and in today.html.erb remove the instance variable references when testing complete.
--Find out how to order by a related model attribute for the requests display in the prayer_pages today view.

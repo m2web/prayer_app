@@ -1,5 +1,21 @@
 <h1>Prayer Today</h1>
-**** Remove after testing complete ****
+<table class="today">
+  <tr>
+		<th class="today">Category</th>
+		<th class="today">Content</th>
+  </tr>
+
+<% @todaysRequests.each do |request| %>
+	<tr>
+		<td class="today"><%= request.category_name %></td>
+		<td class="today" id="prayerContent"><%= request.content %></td>
+  </tr>
+<% end %>
+</table>
+<br/>
+<%= getESVPassage("Psalm " + @thePsalmChapter.to_s).html_safe %>
+<!-- **** Remove after testing complete **** -->
+<hr/>
 <br/>
 *** Will need to change the variables to instance vars in the prayer_pages_controller.rb in the private getTodaysRequests and getTodaysPsalm methods to see the values below ***
 <br/>
@@ -20,22 +36,6 @@ Last Psalm Chapter: <%= @daysLastChapterNumber %>
 <br/>
 The Random Psalm Chapter: <%= @thePsalmChapter %>
 <br/>
-**** End after testing complete ****
-<br/>
-<table class="today">
-  <tr>
-		<th class="today">Category</th>
-		<th class="today">Content</th>
-  </tr>
-
-<% @todaysRequests.each do |request| %>
-	<tr>
-		<td class="today"><%= request.category_name %></td>
-		<td class="today" id="prayerContent"><%= request.content %></td>
-  </tr>
-<% end %>
-</table>
-<br/>
-<%= getESVPassage("Psalm " + @thePsalmChapter.to_s).html_safe %>
+<!-- **** End after testing complete **** -->
 
 

@@ -22,15 +22,18 @@ class PrayerPagesController < ApplicationController
 	
 	def getTodaysRequests
 	#get the total number of requests
+		#TODO: find out how to order by Category model's name attribute instead of Request model's category_id below
+		#requests = Request.all(:order => :category_id)
 		requests = Request.all
+		requests = requests.sort_by { |request| request.category_name }
 		@requestsCount = requests.length
 
 		#keep adding 1 as 0 does not act as a good divisor or multiplicand
 		#get the day number
 		@dayNumber = Time.new.wday + 1
 		
-		#categories per day = (categories / number of days of prayer w unique requests) + 1
-		@categoriesPerDay = ( requests.length / 5) + 1
+		#categories per day = (categories / number of days of prayer w unique requests)
+		@categoriesPerDay = ( requests.length / 5)
 
 		#determine the last category to pray about that day
 		if (@dayNumber * @categoriesPerDay <= @requestsCount ) then
