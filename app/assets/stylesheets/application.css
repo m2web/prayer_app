@@ -5,7 +5,10 @@
  *= require_self
  *= require_tree . 
 */
+table {
+	border-collapse:collapse;
+}
 
 td#prayerContent {
-	width: 75%;
+	width: 85%;
 }

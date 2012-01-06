@@ -7,7 +7,7 @@
 
 <% @todaysRequests.each do |request| %>
 	<tr>
-		<td class="today"><%= request.category_name %></td>
+		<td class="today" id="category"><%= request.category_name %></td>
 		<td class="today" id="prayerContent"><%= request.content %></td>
   </tr>
 <% end %>

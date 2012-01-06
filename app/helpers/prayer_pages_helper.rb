@@ -1,6 +1,8 @@
 module PrayerPagesHelper
 require 'customClasses/esv_daily_verse'
 require 'customClasses/esv_passage'
+require 'open-uri'
+require 'nokogiri'
 
 	def todaysVerse
 		bible = EsvDailyVerse.new
@@ -18,13 +20,26 @@ require 'customClasses/esv_passage'
 		#The APP_CONFIG['yearsVersesArray'] is set in the /config/app_config.yml
 		verseArray =  APP_CONFIG['yearsVersesArray'][0..Time.now.month-1]
 		verseArray.reverse_each {|x| 
-			output += bible.doPassageQuery(x)			
+			output << bible.doPassageQuery(x)			
 		}
 		output
 	end
 
 	def monthReadingSchedule
 		thisMonthsReading = "http://markmcfadden.net/prayerweb/DailyReading/" + Time.now.month.to_s + ".html"
+	end
+
+	def todaysWestminsterCatechism
+		question = ""
+		wscXMLDoc = Nokogiri::XML(open("http://www.markmcfadden.net/assets/westminster_shorter_catechism.xml"))
+		#wscXMLDoc.xpath('//questions').each { |node|
+		#		results += node.name + ":" + node.text
+		#}
+
+		wscXMLDoc.root.traverse do |elem|
+  		question << elem.parent.content if elem.name == "position" && elem.text == '1'
+		end
+		question
 	end
 
 end
