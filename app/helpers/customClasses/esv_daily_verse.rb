@@ -11,7 +11,7 @@ class EsvDailyVerse
 		#"include-passage-references=false",
 		"include-short-copyright=false",
 		"include-content-type=false"].join("&")
-    @base_url = "http://www.esvapi.org/v2/rest/dailyVerse?key=IP&"
+    @base_url = "http://www.esvapi.org/v2/rest/dailyVerse?key=687d2878725c2801&"
   end
 
   def getVerse

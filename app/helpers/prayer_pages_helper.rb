@@ -23,4 +23,8 @@ require 'customClasses/esv_passage'
 		output
 	end
 
+	def monthReadingSchedule
+		thisMonthsReading = "http://markmcfadden.net/prayerweb/DailyReading/" + Time.now.month.to_s + ".html"
+	end
+
 end

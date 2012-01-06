@@ -13,7 +13,7 @@ class EsvPassage
 	"include-subheadings=false",
 	"include-headings=false",
 	"include-content-type=false"].join("&")
-    @base_url = "http://www.esvapi.org/v2/rest/passageQuery?key=IP"
+    @base_url = "http://www.esvapi.org/v2/rest/passageQuery?key=687d2878725c2801"
   end
 
   def doPassageQuery(passage)
