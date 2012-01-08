@@ -11,25 +11,36 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111224060332) do
+ActiveRecord::Schema.define(:version => 20120108174213) do
 
-  create_table "categories", :force => true do |t|
+  create_table "categories", :id => false, :force => true do |t|
+    t.integer  "id",         :null => false
     t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  create_table "people", :force => true do |t|
+  create_table "people", :id => false, :force => true do |t|
+    t.integer  "id",         :null => false
     t.string   "first_name"
     t.string   "last_name"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  create_table "requests", :force => true do |t|
+  create_table "requests", :id => false, :force => true do |t|
+    t.integer  "id",          :null => false
     t.text     "content"
     t.integer  "person_id"
     t.integer  "category_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "westminster_catechism_qand_as", :force => true do |t|
+    t.integer  "questionnumber"
+    t.text     "question"
+    t.text     "answer"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

@@ -1,4 +1,6 @@
 PrayerApp::Application.routes.draw do
+  resources :westminster_catechism_qand_as
+
   get "prayer_pages/home"
 
   get "prayer_pages/today"
