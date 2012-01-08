@@ -29,14 +29,16 @@ gem 'jquery-rails'
 # gem 'ruby-debug19', :require => 'ruby-debug'
 
 group :development do
-	gem 'sqlite3'
+	#gem 'sqlite3'
+	gem "pg"
 	gem 'rspec-rails'	
 end
 
 group :test do
   # Pretty printed test output
   #gem 'turn', '0.8.2', :require => false
-	gem 'sqlite3'
+	#gem 'sqlite3'
+	gem "pg"
 	gem 'rspec'
 	gem 'webrat'
 end
