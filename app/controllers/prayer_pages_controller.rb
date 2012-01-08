@@ -5,6 +5,9 @@ class PrayerPagesController < ApplicationController
 		#The APP_CONFIG['yearsVersesArray'] is set in the /config/app_config.yml
 		verseArray =  APP_CONFIG['yearsVersesArray'][0..Time.now.month-1]
 		@monthlyMemoryVerses = verseArray.reverse
+
+		#today's Westminster Catechism Q and A
+		@westminster_catechism_qand_a = WestminsterCatechismQandA.find(1)
 	
 	end
 
@@ -69,6 +72,26 @@ class PrayerPagesController < ApplicationController
 
 		Random.new.rand(@daysFirstChapterNumber..@daysLastChapterNumber)
 	
+	end
+
+	def todaysWestministerCatechismQandAnumber
+
+		#get today's question
+		numberOfQuestions = 107
+		numberOfQuestionsX2 = numberOfQuestions * 2
+		numberOfQuestionsX3 = numberOfQuestions * 3
+
+		todaysNumber = Time.now.yday
+		
+		if todaysNumber > numberOfQuestions && todaysNumber < numberOfQuestionsX2 then
+			todaysNumber = todaysNumber - numberOfQuestions
+		elsif todaysNumber > numberOfQuestionsX2 && todaysNumber < numberOfQuestionsX3 then
+			todaysNumber = todaysNumber - numberOfQuestionsX2
+		elsif todaysNumber > numberOfQuestionsX3 then
+			todaysNumber = Random.new.rand(1..numberOfQuestions)
+		end
+		
+		todaysNumber
 	end
 
 end

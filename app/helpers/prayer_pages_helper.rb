@@ -29,33 +29,33 @@ require 'nokogiri'
 		thisMonthsReading = "http://markmcfadden.net/prayerweb/DailyReading/" + Time.now.month.to_s + ".html"
 	end
 
-	def todaysWestminsterCatechism
-		question = ""
-		wscXMLDoc = Nokogiri::XML(open("http://www.markmcfadden.net/assets/westminster_shorter_catechism.xml"))
-		#wscXMLDoc.xpath('//questions').each { |node|
-		#		results += node.name + ":" + node.text
-		#}
+	#************************************************************
+	# This is no longer used but keeping for refernece
+	#************************************************************
+	#def todaysWestminsterCatechism
+	#	question = ""
+	#	wscXMLDoc = Nokogiri::XML(open("http://www.markmcfadden.net/assets/westminster_shorter_catechism.xml"))
 		
-		#get today's question
-		numberOfQuestions = 107
-		numberOfQuestionsX2 = numberOfQuestions * 2
-		numberOfQuestionsX3 = numberOfQuestions * 3
+	#	#get today's question
+	#	numberOfQuestions = 107
+	#	numberOfQuestionsX2 = numberOfQuestions * 2
+	#	numberOfQuestionsX3 = numberOfQuestions * 3
 
-		todaysNumber = Time.now.yday
+	#	todaysNumber = Time.now.yday
 		
-		if todaysNumber > numberOfQuestions && todaysNumber < numberOfQuestionsX2 then
-			todaysNumber = todaysNumber - numberOfQuestions
-		elsif todaysNumber > numberOfQuestionsX2 && todaysNumber < numberOfQuestionsX3 then
-			todaysNumber = todaysNumber - numberOfQuestionsX2
-		elsif todaysNumber > numberOfQuestionsX3 then
-			todaysNumber = Random.new.rand(1..numberOfQuestions)
-		end
+	#	if todaysNumber > numberOfQuestions && todaysNumber < numberOfQuestionsX2 then
+	#		todaysNumber = todaysNumber - numberOfQuestions
+	#	elsif todaysNumber > numberOfQuestionsX2 && todaysNumber < numberOfQuestionsX3 then
+	#		todaysNumber = todaysNumber - numberOfQuestionsX2
+	#	elsif todaysNumber > numberOfQuestionsX3 then
+	#		todaysNumber = Random.new.rand(1..numberOfQuestions)
+	#	end
 	
-		#now that you have the question # get the actual question and answer
-		wscXMLDoc.root.traverse do |elem|
-  		question << elem.parent.content if elem.name == "position" && elem.text == todaysNumber.to_s
-		end
-		question
-	end
+	#	#now that you have the question # get the actual question and answer
+	#	wscXMLDoc.root.traverse do |elem|
+  #		question << elem.parent.content if elem.name == "position" && elem.text == todaysNumber.to_s
+	#	end
+	#	question
+	#end
 
 end
