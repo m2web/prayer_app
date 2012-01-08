@@ -1,0 +1,27 @@
+<h1>Listing westminster_catechism_qand_as</h1>
+
+<table>
+  <tr>
+    <th>Questionnumber</th>
+    <th>Question</th>
+    <th>Answer</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @westminster_catechism_qand_as.each do |westminster_catechism_qand_a| %>
+  <tr>
+    <td><%= westminster_catechism_qand_a.questionnumber %></td>
+    <td><%= westminster_catechism_qand_a.question %></td>
+    <td><%= westminster_catechism_qand_a.answer %></td>
+    <td><%= link_to 'Show', westminster_catechism_qand_a %></td>
+    <td><%= link_to 'Edit', edit_westminster_catechism_qand_a_path(westminster_catechism_qand_a) %></td>
+    <td><%= link_to 'Destroy', westminster_catechism_qand_a, confirm: 'Are you sure?', method: :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Westminster catechism qand a', new_westminster_catechism_qand_a_path %>

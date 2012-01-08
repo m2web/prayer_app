@@ -1,0 +1,29 @@
+<%= form_for(@westminster_catechism_qand_a) do |f| %>
+  <% if @westminster_catechism_qand_a.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@westminster_catechism_qand_a.errors.count, "error") %> prohibited this westminster_catechism_qand_a from being saved:</h2>
+
+      <ul>
+      <% @westminster_catechism_qand_a.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :questionnumber %><br />
+    <%= f.number_field :questionnumber %>
+  </div>
+  <div class="field">
+    <%= f.label :question %><br />
+    <%= f.text_area :question %>
+  </div>
+  <div class="field">
+    <%= f.label :answer %><br />
+    <%= f.text_area :answer %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

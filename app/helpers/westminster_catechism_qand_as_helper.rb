@@ -1,0 +1,2 @@
+module WestminsterCatechismQandAsHelper
+end
