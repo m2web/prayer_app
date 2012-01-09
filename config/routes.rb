@@ -1,5 +1,7 @@
 PrayerApp::Application.routes.draw do
   
+	root :to => 'prayer_pages#home'
+
 	resources :westminster_catechism_qand_as
 
   get "prayer_pages/home"
