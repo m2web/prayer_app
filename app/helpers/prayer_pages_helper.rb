@@ -1,8 +1,6 @@
 module PrayerPagesHelper
 require 'customClasses/esv_daily_verse'
 require 'customClasses/esv_passage'
-require 'open-uri'
-require 'nokogiri'
 
 	def todaysVerse
 		bible = EsvDailyVerse.new
@@ -32,6 +30,8 @@ require 'nokogiri'
 	#************************************************************
 	# This is no longer used but keeping for refernece
 	#************************************************************
+	#require 'open-uri'
+	#require 'nokogiri'
 	#def todaysWestminsterCatechism
 	#	question = ""
 	#	wscXMLDoc = Nokogiri::XML(open("http://www.markmcfadden.net/assets/westminster_shorter_catechism.xml"))
