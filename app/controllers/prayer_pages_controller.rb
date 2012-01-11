@@ -14,6 +14,9 @@ class PrayerPagesController < ApplicationController
 	def today
 		#get today's requests to pray and trust God
 		@todaysRequests = getTodaysRequests
+
+		# get all prayer requests for the drop down
+		@allPrayerRequests = getAllRequests
 		
 		#get today's Psalm to read for a reminder to adore the one true God
 		@thePsalmChapter = getTodaysPsalm
@@ -92,6 +95,11 @@ class PrayerPagesController < ApplicationController
 		end
 		
 		todaysNumber
+	end
+
+	def getAllRequests
+			requests = Request.all
+			requests = requests.sort_by { |request| request.category_name }
 	end
 
 end

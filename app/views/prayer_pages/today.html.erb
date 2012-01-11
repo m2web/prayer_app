@@ -3,7 +3,7 @@
   <tr>
 		<th class="today">Category</th>
 		<th class="today">Content</th>
-  </tr>
+	</tr>
 
 <% @todaysRequests.each do |request| %>
 	<tr>
@@ -12,7 +12,12 @@
   </tr>
 <% end %>
 </table>
-<br/>
+
+<!-- drop down of all requests -->
+<br/><br/>
+<%= collection_select(:request, :id, @allPrayerRequests, :id, :category_name, :prompt => true) %>
+<br/><br/>
+
 <%= getESVPassage("Psalm " + @thePsalmChapter.to_s).html_safe %>
 <!-- **** Remove after testing complete **** -->
 <hr/>
