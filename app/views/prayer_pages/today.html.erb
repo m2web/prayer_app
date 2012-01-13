@@ -15,8 +15,16 @@
 
 <!-- drop down of all requests -->
 <br/><br/>
-<%= collection_select(:request, :id, @allPrayerRequests, :id, :category_name, :prompt => true) %>
+<%= collection_select(:category, :id, @allPrayerCategories, :id, :name, :prompt => true) %>
 <br/><br/>
+
+<script>
+$('#category_id').change( function() {
+	alert("Category Value: " + $('#category_id').val());
+});
+</script
+
+<div class="selectResults"></div>
 
 <%= getESVPassage("Psalm " + @thePsalmChapter.to_s).html_safe %>
 <!-- **** Remove after testing complete **** -->
