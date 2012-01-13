@@ -20,17 +20,6 @@
 
 <div id="displaySelection"></div>
 
-<script>
-	$('#category_id').change( function() {
-		var theURL = "/requests/byCategory/" + $('#category_id').val()
-		$.ajax({url: theURL,
-    	success: function(data){
-				$('#displaySelection').html(data);
-      }
-    })
-	});
-</script
-
 <%= getESVPassage("Psalm " + @thePsalmChapter.to_s).html_safe %>
 
 
