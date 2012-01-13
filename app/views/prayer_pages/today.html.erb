@@ -18,35 +18,19 @@
 <%= collection_select(:category, :id, @allPrayerCategories, :id, :name, :prompt => true) %>
 <br/><br/>
 
+<div id="displaySelection"></div>
+
 <script>
-$('#category_id').change( function() {
-	alert("Category Value: " + $('#category_id').val());
-});
+	$('#category_id').change( function() {
+		var theURL = "/requests/byCategory/" + $('#category_id').val()
+		$.ajax({url: theURL,
+    	success: function(data){
+				$('#displaySelection').html(data);
+      }
+    })
+	});
 </script
 
 <%= getESVPassage("Psalm " + @thePsalmChapter.to_s).html_safe %>
-<!-- **** Remove after testing complete **** -->
-<hr/>
-<br/>
-*** Will need to change the variables to instance vars in the prayer_pages_controller.rb in the private getTodaysRequests and getTodaysPsalm methods to see the values below ***
-<br/>
-Request Count: <%= @requestsCount %>
-<br/>
-Day Number: <%= @dayNumber %>
-<br/>
-Categories per day: <%= @categoriesPerDay %>
-<br/>
-Category start: <%= @categoryStart %> : 
-Category end: <%= @categoryEnd %>
-<br/>
-Month Number: <%= @monthDayNumber %>
-<br/>
-First Psalm Day Chapter: <%= @daysFirstChapterNumber %>
-<br/>
-Last Psalm Chapter: <%= @daysLastChapterNumber %>
-<br/>
-The Random Psalm Chapter: <%= @thePsalmChapter %>
-<br/>
-<!-- **** End after testing complete **** -->
 
 

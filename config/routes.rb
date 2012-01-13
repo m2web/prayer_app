@@ -9,6 +9,7 @@ PrayerApp::Application.routes.draw do
   get "prayer_pages/today"
 
   resources :requests
+		match 'requests/byCategory/:category_id', :controller=>'requests', :action =>'byCategory'
 
   resources :categories
 

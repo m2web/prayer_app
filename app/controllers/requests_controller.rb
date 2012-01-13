@@ -80,4 +80,15 @@ class RequestsController < ApplicationController
       format.json { head :ok }
     end
   end
+
+	#get prayer request by category id
+	def byCategory
+		@request = Request.find_by_category_id(params[:category_id])
+
+		respond_to do |format|
+      format.html # byCategory.html.erb
+      format.json { render json: @request }
+    end
+	end
+
 end
