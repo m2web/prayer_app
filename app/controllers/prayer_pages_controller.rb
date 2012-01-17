@@ -2,6 +2,8 @@ class PrayerPagesController < ApplicationController
 
 	def home
 
+		@title = "Mark's Prayer App"
+
 		#The APP_CONFIG['yearsVersesArray'] is set in the /config/app_config.yml
 		verseArray =  APP_CONFIG['yearsVersesArray'][0..Time.now.month-1]
 		@monthlyMemoryVerses = verseArray.reverse
@@ -12,6 +14,9 @@ class PrayerPagesController < ApplicationController
 	end
 
 	def today
+
+		@title = "Today's Prayer"
+
 		#get today's requests to pray and trust God
 		@todaysRequests = getTodaysRequests
 
