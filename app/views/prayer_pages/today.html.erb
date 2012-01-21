@@ -12,9 +12,14 @@
   </tr>
 <% end %>
 </table>
+<br/>
+<div class="prayerTimer">
+	Prayer Time Remaining: <span id="time">0:00</span>
+	<input type="button" id="resetButton" value="Restart"/>
+</div> 
 
 <!-- drop down of all requests -->
-<br/><br/>
+<br/>
 <%= collection_select(:category, :id, @allPrayerCategories, :id, :name, :prompt => true) %>
 <br/><br/>
 
