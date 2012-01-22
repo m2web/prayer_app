@@ -31,7 +31,8 @@ gem 'jquery-rails'
 group :development do
 	#gem 'sqlite3'
 	gem "pg"
-	gem 'rspec-rails'	
+	gem 'rspec-rails'
+	gem 'annotate', :git => 'git://github.com/ctran/annotate_models.git'
 end
 
 group :test do
