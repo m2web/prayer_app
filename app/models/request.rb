@@ -1,3 +1,15 @@
+# == Schema Information
+#
+# Table name: requests
+#
+#  id          :integer         not null, primary key
+#  content     :text
+#  person_id   :integer
+#  category_id :integer
+#  created_at  :datetime
+#  updated_at  :datetime
+#
+
 class Request < ActiveRecord::Base
 	belongs_to :category
 	belongs_to :person
