@@ -1,7 +1,12 @@
 PrayerApp::Application.routes.draw do
-  
+
 	root :to => 'prayer_pages#home'
 
+  resources :users
+		match '/createUser', :to => 'users#new'
+	#get "users/new"
+	#get "users/show"
+	
 	resources :westminster_catechism_qand_as
 
   get "prayer_pages/home"
