@@ -9,8 +9,8 @@ class PrayerPagesController < ApplicationController
 		@monthlyMemoryVerses = verseArray.reverse
 
 		#today's Westminster Catechism Q and A
-		@westminster_catechism_qand_a = WestminsterCatechismQandA.find(todaysWestministerCatechismQandAnumber)
-	
+		@westminster_catechism_qand_a = WestminsterCatechismQandA.find_by_questionnumber(todaysWestministerCatechismQandAnumber)
+
 	end
 
 	def today
