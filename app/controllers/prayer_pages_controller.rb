@@ -92,9 +92,9 @@ class PrayerPagesController < ApplicationController
 
 		todaysNumber = Time.now.yday
 		
-		if todaysNumber > numberOfQuestions && todaysNumber < numberOfQuestionsX2 then
+		if todaysNumber > numberOfQuestions && todaysNumber <= numberOfQuestionsX2 then
 			todaysNumber = todaysNumber - numberOfQuestions
-		elsif todaysNumber > numberOfQuestionsX2 && todaysNumber < numberOfQuestionsX3 then
+		elsif todaysNumber > numberOfQuestionsX2 && todaysNumber <= numberOfQuestionsX3 then
 			todaysNumber = todaysNumber - numberOfQuestionsX2
 		elsif todaysNumber > numberOfQuestionsX3 then
 			todaysNumber = Random.new.rand(1..numberOfQuestions)
