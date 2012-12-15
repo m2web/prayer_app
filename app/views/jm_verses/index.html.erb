@@ -1,0 +1,27 @@
+<h1>Listing jm_verses</h1>
+
+<table>
+  <tr>
+    <th>Verse month</th>
+    <th>Reference</th>
+    <th>Text</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @jm_verses.each do |jm_verse| %>
+  <tr>
+    <td><%= jm_verse.verse_month %></td>
+    <td><%= jm_verse.reference %></td>
+    <td><%= jm_verse.text %></td>
+    <td><%= link_to 'Show', jm_verse %></td>
+    <td><%= link_to 'Edit', edit_jm_verse_path(jm_verse) %></td>
+    <td><%= link_to 'Destroy', jm_verse, confirm: 'Are you sure?', method: :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Jm verse', new_jm_verse_path %>

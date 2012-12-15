@@ -1,0 +1,2 @@
+module JmVersesHelper
+end

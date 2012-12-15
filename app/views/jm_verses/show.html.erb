@@ -1,0 +1,20 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Verse month:</b>
+  <%= @jm_verse.verse_month %>
+</p>
+
+<p>
+  <b>Reference:</b>
+  <%= @jm_verse.reference %>
+</p>
+
+<p>
+  <b>Text:</b>
+  <%= @jm_verse.text %>
+</p>
+
+
+<%= link_to 'Edit', edit_jm_verse_path(@jm_verse) %> |
+<%= link_to 'Back', jm_verses_path %>

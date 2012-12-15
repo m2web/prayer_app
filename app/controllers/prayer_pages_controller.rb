@@ -11,6 +11,9 @@ class PrayerPagesController < ApplicationController
 		#today's Westminster Catechism Q and A
 		@westminster_catechism_qand_a = WestminsterCatechismQandA.find_by_questionnumber(todaysWestministerCatechismQandAnumber)
 
+		#Joshua's Men Verses here
+		@jmverses = getJMVerse
+
 	end
 
 	def today
@@ -106,6 +109,13 @@ class PrayerPagesController < ApplicationController
 	def getAllCategories
 			categories = Category.all
 			categories = categories.sort_by { |category| category.name }
+	end
+
+	def getJMVerse
+		# the verse months are February to November but this matches them
+		verseMonthNumbers = (1..Time.now.month).to_a #to.a is a toArray command to get the range into an array i.e. [1,2,3]
+		@jmverses = JmVerse.find(:all, :order => 'verse_month DESC', :conditions=> {:verse_month => [verseMonthNumbers]})
+
 	end
 
 end

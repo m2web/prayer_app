@@ -1,0 +1,29 @@
+<%= form_for(@jm_verse) do |f| %>
+  <% if @jm_verse.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@jm_verse.errors.count, "error") %> prohibited this jm_verse from being saved:</h2>
+
+      <ul>
+      <% @jm_verse.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :verse_month %><br />
+    <%= f.number_field :verse_month %>
+  </div>
+  <div class="field">
+    <%= f.label :reference %><br />
+    <%= f.text_field :reference %>
+  </div>
+  <div class="field">
+    <%= f.label :text %><br />
+    <%= f.text_area :text %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

@@ -1,5 +1,7 @@
 PrayerApp::Application.routes.draw do
 
+  resources :jm_verses
+
 	root :to => 'prayer_pages#home'
 
   resources :users
