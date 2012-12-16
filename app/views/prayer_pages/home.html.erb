@@ -17,20 +17,20 @@
 <br/>
 <table>
 	<% @jmverses.each do |verse| %>
-	<tr class="<%= cycle("odd", "even") -%>">
-		<td>&nbsp;
-		<table>
-			<tr>
-				<td class="jm_verse_ref"><%= verse.reference %></td>
-			</tr>
-			<tr>
-				<td class="jm_verse_text"><%= verse.text %></td>
-			</tr>
-		</table>
-		&nbsp;
-		</td>
-	</tr>
-<% end %>
+		<tr class="<%= cycle("odd", "even") -%>">
+			<td>&nbsp;
+			<table>
+				<tr>
+					<td class="jm_verse_ref"><%= verse.reference %></td>
+				</tr>
+				<tr>
+					<td class="jm_verse_text"><%= verse.text %></td>
+				</tr>
+			</table>
+			&nbsp;
+			</td>
+		</tr>
+	<% end %>
 </table> 
 <!--
 <br/>
