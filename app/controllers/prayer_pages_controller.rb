@@ -112,8 +112,13 @@ class PrayerPagesController < ApplicationController
 	end
 
 	def getJMVerse
-		# the verse months are February to November but this matches them
-		verseMonthNumbers = (1..Time.now.month).to_a #to.a is a toArray command to get the range into an array i.e. [1,2,3]
+		# the verse months are February to November or 2 to 11
+		monthNumber = Time.now.month
+		#we are starting at February so make the end of the range 2
+		if monthNumber < 2
+			monthNumber = 2
+		end
+		verseMonthNumbers = (0..monthNumber).to_a #to.a is a toArray command to get the range into an array i.e. [1,2,3]
 		@jmverses = JmVerse.find(:all, :order => 'verse_month DESC', :conditions=> {:verse_month => [verseMonthNumbers]})
 
 	end
