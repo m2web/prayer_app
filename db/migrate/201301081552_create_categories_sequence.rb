@@ -8,7 +8,6 @@ class CreateCategoriesSequence < ActiveRecord::Migration
 	MAXVALUE 9223372036854775807
 	START 25
 	CACHE 1;
-	ALTER TABLE categories_id_seq OWNER TO root;
     SQL
   end
  
