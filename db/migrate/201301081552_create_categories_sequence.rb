@@ -1,6 +1,6 @@
 class CreateCategoriesSequence < ActiveRecord::Migration
   def up
-    #create sequence
+    #create sequence for categories table
     execute <<-SQL
 	CREATE SEQUENCE categories_id_seq
 	INCREMENT 1
