@@ -46,7 +46,7 @@ class PrayerPagesController < ApplicationController
 		dayNumber = Time.new.wday + 1
 		
 		#categories per day = (categories / number of days of prayer w unique requests)
-		categoriesPerDay = ( requests.length / 5)
+		categoriesPerDay = ( requests.length / 4)
 
 		#determine the last category to pray about that day
 		if (dayNumber * categoriesPerDay <= requestsCount ) then
