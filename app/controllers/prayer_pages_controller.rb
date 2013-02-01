@@ -14,6 +14,9 @@ class PrayerPagesController < ApplicationController
 		#Joshua's Men Verses here
 		@jmverses = getJMVerse
 
+		#date that is displayed
+		@todaysDate = Time.now.strftime("%A - %B %e, %Y")
+
 	end
 
 	def today
