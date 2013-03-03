@@ -118,9 +118,7 @@ class PrayerPagesController < ApplicationController
 		# the verse months are February to November or 2 to 11
 		monthNumber = Time.now.month
 		#we are starting at February but I want to be a month ahead so add 1 to the month number
-		if monthNumber <= 2
-			monthNumber = monthNumber + 1
-		end
+		monthNumber = monthNumber + 1
 		
 		#if it is November or December, then stay in November as there is no Dec verse
 		if Time.now.month >= 11
