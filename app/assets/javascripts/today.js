@@ -12,8 +12,10 @@ $(document).ready(function () {
 
 //***** Today's view prayer timer functions ******
 //show button after time has run out
-function showButton(){
-	document.getElementById("resetButton").style.display = "block";
+function showResetButton(){
+	document.getElementById("resetButton").style.display = "inline";
+	document.getElementById("restartButton").style.display = "none";
+	document.getElementById("pauseButton").style.display = "none";
 }
 
 function tickTock(){
@@ -37,8 +39,8 @@ function tickTock(){
 	if(remainingSeconds == 0){
 		//stop timer
 		clearInterval(interval);
-		//run the showButton function
-		showButton();
+		//run the showResetButton function
+		showResetButton();
 		//optional hide time when countdown reaches zero
 		//document.getElementById("time").style.display = "none";
 	}
@@ -46,9 +48,15 @@ function tickTock(){
 	remainingSeconds --;
 }
 
-function startCountdown(){
+function restartCountdown(){
+	interval = setInterval(tickTock, 1000);
+}
+
+function resetCountdown(){
 	//hide the button after clicking reset counter
 	document.getElementById("resetButton").style.display = "none";
+	document.getElementById("restartButton").style.display = "inline";
+	document.getElementById("pauseButton").style.display = "inline";
 	//set amount of minutes for countdown
 	//****************************
 	//** Number of Minutes set here **
@@ -61,9 +69,16 @@ function startCountdown(){
 	interval = setInterval(tickTock, 1000);
 }
 
-//on load run startCountdown function
+function pauseCountdown() {
+	// pauses countdown
+	clearTimeout(interval);
+}
+
+//on load run reset to start Countdown function
 window.onload = function(){
-	startCountdown();
-	document.getElementById("resetButton").onclick = startCountdown;
+	resetCountdown();
+	document.getElementById("restartButton").onclick = restartCountdown;	
+	document.getElementById("resetButton").onclick = resetCountdown;
+	document.getElementById("pauseButton").onclick = pauseCountdown;
 }
 //***** end today's view prayer timer functions ******
