@@ -49,13 +49,16 @@ function tickTock(){
 }
 
 function restartCountdown(){
+	document.getElementById("restartButton").style.display = "none";
+	document.getElementById("pauseButton").style.display = "inline";
+
 	interval = setInterval(tickTock, 1000);
 }
 
 function resetCountdown(){
 	//hide the button after clicking reset counter
 	document.getElementById("resetButton").style.display = "none";
-	document.getElementById("restartButton").style.display = "inline";
+	document.getElementById("restartButton").style.display = "none";
 	document.getElementById("pauseButton").style.display = "inline";
 	//set amount of minutes for countdown
 	//****************************
@@ -70,6 +73,8 @@ function resetCountdown(){
 }
 
 function pauseCountdown() {
+	document.getElementById("restartButton").style.display = "inline";
+	document.getElementById("pauseButton").style.display = "none";
 	// pauses countdown
 	clearTimeout(interval);
 }
