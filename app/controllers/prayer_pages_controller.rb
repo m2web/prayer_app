@@ -16,6 +16,9 @@ class PrayerPagesController < ApplicationController
 
 		#date that is displayed
 		@todaysDate = Time.now.strftime("%A - %B %e, %Y")
+		
+		#today's Valley of Vision Prayer
+		@vovPrayerNumber = todaysValleyOfVisionPrayer
 
 	end
 
@@ -96,7 +99,7 @@ class PrayerPagesController < ApplicationController
 		numberOfQuestionsX2 = numberOfQuestions * 2
 		numberOfQuestionsX3 = numberOfQuestions * 3
 
-		todaysNumber = Time.now.yday
+		todaysNumber = getTodaysNumber
 		
 		if todaysNumber > numberOfQuestions && todaysNumber <= numberOfQuestionsX2 then
 			todaysNumber = todaysNumber - numberOfQuestions
@@ -128,6 +131,28 @@ class PrayerPagesController < ApplicationController
 		verseMonthNumbers = (0..monthNumber).to_a #to.a is a toArray command to get the range into an array i.e. [1,2,3]
 		@jmverses = JmVerse.find(:all, :order => 'verse_month DESC', :conditions=> {:verse_month => [verseMonthNumbers]})
 
+	end
+	
+	def todaysValleyOfVisionPrayer
+		#I have scraped the Valley of Vision Prayers available from Banner of Truth (http://www.banneroftruth.org/pages/dailydevotion.php)
+		#and have them as web pages, each numbered, so they are 1.html thru 159.html. So lets get the proper URL for today.
+		#Let's get the prayer for the day of the year. We will go thru all the prayers 2X then after day 318 we will be random in the selection.
+		
+		todaysPrayerNumber = getTodaysNumber
+		numberOfPrayers = 159
+		numberOfPrayersX2 = numberOfPrayers * 2
+		
+		if todaysPrayerNumber > numberOfPrayers && todaysPrayerNumber <= numberOfPrayersX2 then
+			todaysPrayerNumber = todaysPrayerNumber - numberOfPrayers
+		elsif todaysPrayerNumber > numberOfPrayersX2 then
+			todaysPrayerNumber = Random.new.rand(1..numberOfPrayers)
+		end
+		
+		todaysPrayerNumber
+	end
+	
+	def getTodaysNumber
+		Time.now.yday
 	end
 
 end
