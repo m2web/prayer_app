@@ -54,19 +54,18 @@ class PrayerPagesController < ApplicationController
 		#categories per day = (categories / number of days of prayer w unique requests)
 		categoriesPerDay = ( requests.length / 4)
 
+#if have this block commented out as I wanted to make each day a random prayer selection. at least for awhile
 		#determine the last category to pray about that day
-		if (dayNumber * categoriesPerDay <= requestsCount ) then
-			categoryEnd = dayNumber * categoriesPerDay
-		else
+#		if (dayNumber * categoriesPerDay <= requestsCount ) then
+#			categoryEnd = dayNumber * categoriesPerDay
+#		else
 			#get a random number for category end since the last days of the week will have the same requests
-        if (dayNumber > 5) then #if day greater than Thursday (+1 as 0 not good divisor or multiplicand)
-	        #Random random = new Random();
-          #@categoryEnd = random.Next(3, numberOfCategories);
-					categoryEnd = Random.new.rand(3..requestsCount)
-        else #it is Monday - Thursday
-					categoryEnd = requestsCount;
-				end
-		end
+#			if (dayNumber > 5) then #if day greater than Thursday (+1 as 0 not good divisor or multiplicand)
+				categoryEnd = Random.new.rand(3..requestsCount)
+#			else #it is Monday - Thursday
+#				categoryEnd = requestsCount;
+#			end
+#		end
 	
 		#determine the first category to pray about that day
 		categoryStart = categoryEnd - categoriesPerDay;
