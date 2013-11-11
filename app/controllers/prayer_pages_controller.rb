@@ -61,7 +61,7 @@ class PrayerPagesController < ApplicationController
 #		else
 			#get a random number for category end since the last days of the week will have the same requests
 #			if (dayNumber > 5) then #if day greater than Thursday (+1 as 0 not good divisor or multiplicand)
-				categoryEnd = Random.new.rand(3..requestsCount)
+				categoryEnd = Random.new.rand(4..requestsCount)
 #			else #it is Monday - Thursday
 #				categoryEnd = requestsCount;
 #			end
