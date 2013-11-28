@@ -128,7 +128,18 @@ class PrayerPagesController < ApplicationController
 		end
 
 		verseMonthNumbers = (0..monthNumber).to_a #to.a is a toArray command to get the range into an array i.e. [1,2,3]
-		theYear = 'GRUDEM' #'BOOKS'
+		
+		#determine which year it is i.e. a year that the individual books are used or a year that Grudem's Systematic Theology is used.
+		#The APP_CONFIG['bookYears'] and APP_CONFIG['grudemYears'] variables are set in the /config/app_config.yml
+		bookYears = APP_CONFIG['bookYears']
+		grudemYears = APP_CONFIG['grudemYears']
+		
+		if bookYears.include?(Time.now.year)
+			theYear = 'BOOKS'
+		elsif grudemYears.include?(Time.now.year)
+			theYear = 'GRUDEM'
+		end
+		
 		@jmverses = JmVerse.find(:all, :order => 'verse_month DESC', :conditions=> {:verse_month => [verseMonthNumbers], :year => theYear})
 
 	end
