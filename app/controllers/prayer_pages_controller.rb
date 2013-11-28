@@ -128,7 +128,8 @@ class PrayerPagesController < ApplicationController
 		end
 
 		verseMonthNumbers = (0..monthNumber).to_a #to.a is a toArray command to get the range into an array i.e. [1,2,3]
-		@jmverses = JmVerse.find(:all, :order => 'verse_month DESC', :conditions=> {:verse_month => [verseMonthNumbers]})
+		theYear = 'GRUDEM' #'BOOKS'
+		@jmverses = JmVerse.find(:all, :order => 'verse_month DESC', :conditions=> {:verse_month => [verseMonthNumbers], :year => theYear})
 
 	end
 	
