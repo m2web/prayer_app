@@ -34,14 +34,6 @@ describe JmVersesController do
     {}
   end
 
-  describe "GET index" do
-    it "assigns all jm_verses as @jm_verses" do
-      jm_verse = JmVerse.create! valid_attributes
-      get :index, {}, valid_session
-      assigns(:jm_verses).should eq([jm_verse])
-    end
-  end
-
   describe "GET show" do
     it "assigns the requested jm_verse as @jm_verse" do
       jm_verse = JmVerse.create! valid_attributes
